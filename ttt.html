@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tictactoe</title>
+</head>
+<body style="display: flex; justify-content: center">
+<div style="margin-top:100px; display: inline-block; vertical-align: top">
+    <p><button onclick="change1('1')"><img id="1" src="nothing.png" width="70" height="70"></button>
+    <button onclick="change1('2')"><img id="2" src="nothing.png" width="70" height="70"></button>
+    <button onclick="change1('3')"><img id="3" src="nothing.png" width="70" height="70"></button></p>
+     <p><button onclick="change1('4')"><img id="4" src="nothing.png" width="70" height="70"></button>
+    <button onclick="change1('5')"><img id="5" src="nothing.png" width="70" height="70"></button>
+    <button onclick="change1('6')"><img id="6" src="nothing.png" width="70" height="70"></button></p>
+     <p><button onclick="change1('7')"><img id="7" src="nothing.png" width="70" height="70"></button>
+    <button onclick="change1('8')"><img id="8" src="nothing.png" width="70" height="70"></button>
+    <button onclick="change1('9')"><img id="9" src="nothing.png" width="70" height="70"></button></p>
+</div>
+<div style="margin-left:120px ; margin-top:100px; display: inline-block; vertical-align: top">
+    <img src="plus.png" style="display: inline-block; vertical-align: middle"><h1 style="display: inline-block; vertical-align: middle" id="p">0</h1>
+    <img src="zero.png" style="display: inline-block; vertical-align: middle"><h1 style="display: inline-block; vertical-align: middle" id="z">0</h1>
+    <p style="vertical-align: top"><button onclick="restar()"><img src="Reset.png" width="90" height="90"></button></p>
+</div>
+</body>
+<script>
+    chn = false
+    function check(id1,id2,id3) {
+        src1 = document.getElementById(id1).src
+        src2 = document.getElementById(id2).src
+        src3 = document.getElementById(id3).src
+        if(src1==src2&&scr2==src3&&src1.includes("plus.png")){
+            document.getElementById("p").innerHtml += 1
+        }
+        if(src1==src2&&scr2==src3&&src1.includes("zero.png")) {
+            document.getElementById("z").innerHtml += 1
+        }
+    }
+    function change1(id) {
+        if(document.getElementById(id).src.includes("nothing.png")){
+            chn = !chn
+            if(chn == true) (document.getElementById(id).src = "plus.png")
+            else if(chn == false) (document.getElementById(id).src = "zero.png")
+            check('1','2','3')
+            check('4','5','6')
+            check('7','8','9')
+            check('1','4','7')
+            check('2','5','8')
+            check('3','6','9')
+            check('1','5','9')
+            check('3','5','7')
+        }
+    }
+    function restar() {
+        if(chn == false)
+        document.getElementById("1").src = "nothing.png"
+        document.getElementById("2").src = "nothing.png"
+        document.getElementById("3").src = "nothing.png"
+        document.getElementById("4").src = "nothing.png"
+        document.getElementById("5").src = "nothing.png"
+        document.getElementById("6").src = "nothing.png"
+        document.getElementById("7").src = "nothing.png"
+        document.getElementById("8").src = "nothing.png"
+        document.getElementById("9").src = "nothing.png"
+    }
+</script>
+</html>
